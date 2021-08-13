@@ -23,7 +23,16 @@ public class MainController {
         User n = new User();
         n.setName(name);
         n.setEmail(email);
-        userRepository.save(n);
+
+        Book b = new Book();
+        b.setName("Clean Code");
+        b.setAuthor("Robert Cecil Martin");
+
+        n.getBooks().add(b); // Add book reference to a user
+        b.getUsers().add(n); // Add user reference to a book
+
+        userRepository.save(n); // Save the user in the database
+
         return "Saved";
     }
 
