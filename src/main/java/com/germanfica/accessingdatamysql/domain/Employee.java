@@ -1,5 +1,7 @@
 package com.germanfica.accessingdatamysql.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -16,6 +18,12 @@ public class Employee {
     private Integer id;
     private String name;
 
+    @Getter(value = AccessLevel.NONE)
     @ManyToOne(fetch = FetchType.LAZY)
     private Department department;
+
+    @JsonBackReference
+    private Department getDepartment() {
+        return this.department;
+    }
 }

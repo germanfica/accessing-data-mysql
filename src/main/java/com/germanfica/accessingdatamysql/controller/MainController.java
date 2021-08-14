@@ -77,9 +77,18 @@ public class MainController {
         return "Saved";
     }
 
-    @GetMapping(path="/all")
+    // curl 'localhost:8080/demo/allUsers'
+    @GetMapping(path="/allUsers")
     public @ResponseBody Iterable<User> getAllUsers() {
         // This returns a JSON or XML with the users
         return userRepository.findAll();
     }
+
+    // curl 'localhost:8080/demo/allDepartments'
+    @GetMapping(path="/allDepartments")
+    public @ResponseBody Iterable<Department> getAllDepartments() {
+        // This returns a JSON or XML with the users
+        return departmentRepository.findAll();
+    }
+
 }

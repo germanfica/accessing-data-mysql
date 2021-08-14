@@ -1,5 +1,7 @@
 package com.germanfica.accessingdatamysql.domain;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -21,7 +23,13 @@ public class Department {
     private Integer id;
     private String name;
 
+    @Getter(value = AccessLevel.NONE)
     @OneToMany(mappedBy = "department", cascade = CascadeType.ALL)
     @LazyCollection( LazyCollectionOption.EXTRA )
     private List<Employee> employees = new ArrayList<>();
+
+    @JsonManagedReference
+    private List<Employee> getEmployees() {
+        return this.employees;
+    }
 }
