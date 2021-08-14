@@ -1,4 +1,4 @@
-package com.germanfica.accessingdatamysql.domain;
+package com.germanfica.accessingdatamysql.domain.onetomany;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AccessLevel;
@@ -7,11 +7,15 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This entity is one-to-many
+ *
+ * One department houses many employees
+ */
 @Getter
 @Setter
 @NoArgsConstructor

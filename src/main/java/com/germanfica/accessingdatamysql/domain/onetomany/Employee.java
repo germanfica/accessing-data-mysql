@@ -1,4 +1,4 @@
-package com.germanfica.accessingdatamysql.domain;
+package com.germanfica.accessingdatamysql.domain.onetomany;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AccessLevel;
@@ -7,6 +7,11 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import javax.persistence.*;
 
+/**
+ * This entity is many-to-one
+ *
+ * An employee is housed by a department
+ */
 @Getter
 @Setter
 @NoArgsConstructor

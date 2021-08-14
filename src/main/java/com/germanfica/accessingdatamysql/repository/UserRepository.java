@@ -1,6 +1,6 @@
 package com.germanfica.accessingdatamysql.repository;
 
-import com.germanfica.accessingdatamysql.domain.User;
+import com.germanfica.accessingdatamysql.domain.manytomany.User;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 

@@ -1,9 +1,9 @@
 package com.germanfica.accessingdatamysql.controller;
 
-import com.germanfica.accessingdatamysql.domain.Book;
-import com.germanfica.accessingdatamysql.domain.Department;
-import com.germanfica.accessingdatamysql.domain.Employee;
-import com.germanfica.accessingdatamysql.domain.User;
+import com.germanfica.accessingdatamysql.domain.manytomany.Book;
+import com.germanfica.accessingdatamysql.domain.onetomany.Department;
+import com.germanfica.accessingdatamysql.domain.onetomany.Employee;
+import com.germanfica.accessingdatamysql.domain.manytomany.User;
 import com.germanfica.accessingdatamysql.repository.BookRepository;
 import com.germanfica.accessingdatamysql.repository.DepartmentRepository;
 import com.germanfica.accessingdatamysql.repository.EmployeeRepository;

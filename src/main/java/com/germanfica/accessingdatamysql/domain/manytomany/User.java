@@ -1,4 +1,4 @@
-package com.germanfica.accessingdatamysql.domain;
+package com.germanfica.accessingdatamysql.domain.manytomany;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AccessLevel;
