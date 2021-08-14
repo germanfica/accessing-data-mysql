@@ -65,7 +65,7 @@ public class MainController {
         return "Saved";
     }
 
-    // curl localhost:8080/demo/addEmployee -d name='Computer Science' -d departmentId=1
+    // curl localhost:8080/demo/addEmployee -d name='Lucas' -d departmentId=1
     @PostMapping(path="/addEmployee") // Map ONLY POST Requests
     public @ResponseBody String addEmployee (@RequestParam String name, @RequestParam int departmentId){
         Employee employee = new Employee();
@@ -89,6 +89,13 @@ public class MainController {
     public @ResponseBody Iterable<Department> getAllDepartments() {
         // This returns a JSON or XML with the users
         return departmentRepository.findAll();
+    }
+
+    // curl 'localhost:8080/demo/allEmployees'
+    @GetMapping(path="/allEmployees")
+    public @ResponseBody Iterable<Employee> getAllEmployees() {
+        // This returns a JSON or XML with the users
+        return employeeRepository.findAll();
     }
 
 }
