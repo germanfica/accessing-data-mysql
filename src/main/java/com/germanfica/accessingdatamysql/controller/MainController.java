@@ -1,5 +1,8 @@
-package com.germanfica.accessingdatamysql;
+package com.germanfica.accessingdatamysql.controller;
 
+import com.germanfica.accessingdatamysql.domain.Book;
+import com.germanfica.accessingdatamysql.domain.User;
+import com.germanfica.accessingdatamysql.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
