@@ -15,12 +15,12 @@ public class Like {
     private LikeId id;
 
     @Getter(value = AccessLevel.NONE)
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @MapsId("userId") //  maps the userId attribute of embedded id
     private User user;
 
     @Getter(value = AccessLevel.NONE)
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @MapsId("bookId")  //  maps the bookId attribute of embedded id
     private Book book;
 

@@ -126,4 +126,14 @@ public class MainController {
         return "Saved";
     }
 
+    // curl localhost:8080/demo/getLikes/1
+    @GetMapping(path="/getLikes/{id}")
+    public @ResponseBody Iterable<Object> getLikes(@PathVariable("id") int userId) {
+        // This returns a JSON or XML with the users
+        // List<LikeId> ids = new ArrayList<>();
+        // ids.add(new LikeId(1,1));
+
+        //return likeRepository.findAllByIdIn(ids);
+        return likeRepository.findAllByUserId(userId);
+    }
 }

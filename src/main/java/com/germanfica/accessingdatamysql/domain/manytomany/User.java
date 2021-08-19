@@ -22,7 +22,10 @@ public class User {
     private String email;
 
     @Getter(value = AccessLevel.NONE)
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", cascade={
+            CascadeType.PERSIST,
+            CascadeType.REMOVE
+    })
     private List<Like> likes = new ArrayList<>();
 
     @JsonManagedReference
