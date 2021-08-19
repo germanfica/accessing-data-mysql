@@ -22,18 +22,11 @@ public class User {
     private String email;
 
     @Getter(value = AccessLevel.NONE)
-    @ManyToMany(
-            fetch = FetchType.LAZY,
-            cascade = CascadeType.ALL
-    )
-    @JoinTable(
-            name = "likes",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "book_id"))
-    private List<Book> books = new ArrayList<>();
+    @OneToMany(mappedBy = "book")
+    private List<Like> likes = new ArrayList<>();
 
     @JsonManagedReference
-    public List<Book> getBooks() {
-        return this.books;
+    public List<Like> getLikes() {
+        return likes;
     }
 }

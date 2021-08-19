@@ -1,13 +1,12 @@
 package com.germanfica.accessingdatamysql.controller;
 
 import com.germanfica.accessingdatamysql.domain.manytomany.Book;
+import com.germanfica.accessingdatamysql.domain.manytomany.Like;
 import com.germanfica.accessingdatamysql.domain.onetomany.Department;
 import com.germanfica.accessingdatamysql.domain.onetomany.Employee;
 import com.germanfica.accessingdatamysql.domain.manytomany.User;
-import com.germanfica.accessingdatamysql.repository.BookRepository;
-import com.germanfica.accessingdatamysql.repository.DepartmentRepository;
-import com.germanfica.accessingdatamysql.repository.EmployeeRepository;
-import com.germanfica.accessingdatamysql.repository.UserRepository;
+import com.germanfica.accessingdatamysql.embeddable.LikeId;
+import com.germanfica.accessingdatamysql.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +19,7 @@ public class MainController {
     private BookRepository bookRepository;
     private DepartmentRepository departmentRepository;
     private EmployeeRepository employeeRepository;
+    private LikeRepository likeRepository;
 
     // == constructors ==
     @Autowired // This means to get the bean called userRepository
@@ -27,11 +27,14 @@ public class MainController {
     private MainController(UserRepository userRepository,
                            BookRepository bookRepository,
                            DepartmentRepository departmentRepository,
-                           EmployeeRepository employeeRepository) {
+                           EmployeeRepository employeeRepository,
+                           LikeRepository likeRepository
+    ) {
         this.userRepository = userRepository;
         this.bookRepository = bookRepository;
         this.departmentRepository = departmentRepository;
         this.employeeRepository = employeeRepository;
+        this.likeRepository = likeRepository;
     }
 
     // == request methods ==
@@ -46,10 +49,17 @@ public class MainController {
         b.setName("Clean Code");
         b.setAuthor("Robert Cecil Martin");
 
-        n.getBooks().add(b); // Add book reference to a user
-        b.getUsers().add(n); // Add user reference to a book
+        Like l = new Like();
+        l.setId(new LikeId(n.getId(),b.getId()));
+        //l.setPk(new LikePK(n,b));
+        //l.setId(new LikePK(n,b));
+        l.setName("asda");
+        l.setUser(n);
+        l.setBook(b);
 
         userRepository.save(n); // Save the user in the database
+        bookRepository.save(b); // Save the book in the database
+        likeRepository.save(l); // Save the like in the database
 
         return "Saved";
     }

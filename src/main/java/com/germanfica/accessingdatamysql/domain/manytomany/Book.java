@@ -1,6 +1,7 @@
 package com.germanfica.accessingdatamysql.domain.manytomany;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,12 +20,12 @@ public class Book {
     private String name;
     private String author;
 
-    @Getter(value = AccessLevel.NONE)
-    @ManyToMany(mappedBy = "books")
-    private List<User> users = new ArrayList<>();
-
-    @JsonBackReference
-    public List<User> getUsers() {
-        return this.users;
-    }
+//    @Getter(value = AccessLevel.NONE)
+//    @OneToMany(mappedBy = "book")
+//    private List<Like> likes = new ArrayList<>();
+//
+//    @JsonManagedReference
+//    public List<Like> getLikes() {
+//        return likes;
+//    }
 }
