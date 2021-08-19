@@ -22,7 +22,7 @@ public class User {
     private String email;
 
     @Getter(value = AccessLevel.NONE)
-    @OneToMany(mappedBy = "book")
+    @OneToMany(mappedBy = "user")
     private List<Like> likes = new ArrayList<>();
 
     @JsonManagedReference
