@@ -20,12 +20,12 @@ public class Book {
     private String name;
     private String author;
 
-//    @Getter(value = AccessLevel.NONE)
-//    @OneToMany(mappedBy = "book")
-//    private List<Like> likes = new ArrayList<>();
-//
-//    @JsonManagedReference
-//    public List<Like> getLikes() {
-//        return likes;
-//    }
+    @Getter(value = AccessLevel.NONE)
+    @OneToMany(mappedBy = "book")
+    private List<Like> likes = new ArrayList<>();
+
+    @JsonManagedReference
+    public List<Like> getLikes() {
+        return likes;
+    }
 }

@@ -5,6 +5,7 @@ import com.germanfica.accessingdatamysql.embeddable.LikeId;
 import lombok.*;
 import javax.persistence.*;
 
+// https://docs.jboss.org/hibernate/orm/current/userguide/html_single/Hibernate_User_Guide.html#associations-many-to-many-bidirectional-with-link-entity
 @Getter
 @Setter
 @NoArgsConstructor
