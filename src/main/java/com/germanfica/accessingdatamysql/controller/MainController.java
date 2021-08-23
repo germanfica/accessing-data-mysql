@@ -108,16 +108,16 @@ public class MainController {
         return employeeRepository.findAll();
     }
 
-    // curl localhost:8080/demo/likeBook -d userId=1 -d bookId=1
+    // curl localhost:8080/demo/likeBook -d name="holis" -d userId=1 -d bookId=1
     @PostMapping(path="/likeBook") // Map ONLY POST Requests
-    public @ResponseBody String likeBook (@RequestParam int userId, @RequestParam int bookId){
+    public @ResponseBody String likeBook (@RequestParam String name ,@RequestParam int userId, @RequestParam int bookId){
         User n = userRepository.findById(userId).get();
         Book b = bookRepository.findById(bookId).get();
 
         // Like
         Like l = new Like();
         l.setId(new LikeId(n.getId(),b.getId()));
-        l.setName("holaa");
+        l.setName(name);
         l.setUser(n);
         l.setBook(b);
 
